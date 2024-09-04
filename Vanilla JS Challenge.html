@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://kit.fontawesome.com/e391ce7786.js" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+<style type="text/css">
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	background-color: linen;
+}
+h1{
+    font-family: sans-serif;
+    font-weight: 800;
+    margin: 15px 0;
+}
+.container{
+    display: flex;
+	background-color: linen;
+}
+.container .section{
+    width: 350px;
+    margin: 35px 70px;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 30px 0 rgba(0, 0, 0, 0.19);
+}
+.section .info{
+    background: powderblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+.info span , .info h3{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0px 10px;
+    font-family: sans-serif;
+    color: black;
+}
+.show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background : powderblue;
+    height: 220px;
+}
+.show i{
+    font-size: 100px;
+    color: orange;
+}
+h2{
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 5px;
+}
+.selection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 100px;
+}
+.selection button{
+    margin: 0 20px;
+    padding: 25px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background : powderblue;
+    font-size: 33px;
+    color: orange;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 30px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
+</head>
+<h4>Rock Paper Scissors Game</h4>
+<h6 id="demo"> Do you choose rock, paper or scissors?</h6>
+    <div class="container">
+        <div class="section">
+            <div class="info">
+                <h3>You :</h3><span id="playerScore">0</span>
+            </div>
+            <div class="show">
+                <i class="fas fa-hand-rock"></i>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="info">
+                <h3>Computer :</h3><span id="computerScore">0</span>
+            </div>
+            <div class="show computer">
+                <i class="fas fa-hand-scissors"></i>
+            </div>
+        </div>
+    </div>
+    <h2 style="color: red;" id="demo2">Choose One !</h2>
+    <div class="selection">
+        <button class="fas fa-hand-rock" id="rock"></button>
+        <button class="fas fa-hand-paper" id="paper"></button>
+        <button class="fas fa-hand-scissors" id="scissors"></button>
+    </div>
+
+<script language="JavaScript">
+// Defining the variables and select the elements.
+const pScore = document.getElementById('playerScore');
+const cScore = document.getElementById('computerScore');
+const buttons = document.querySelectorAll('.selection button');
+const showIcon = document.querySelector('.show i');
+const computerShowIcon = document.querySelector('.computer i');
+
+// Storing the scores.
+let computerScore = 1;
+let playerScore = 1;
+
+const rockIcon = "fas fa-hand-rock";
+const paperIcon = "fas fa-hand-paper";
+const scissorsIcon = "fas fa-hand-scissors";
+
+const randomClasses = [rockIcon, paperIcon, scissorsIcon];
+const text = document.getElementById('demo');
+const text2 = document.getElementById('demo2');
+
+const tie = ()=>{
+    text.innerHTML = "It's a Tie ! ";
+    text.style.color = 'orange';
+    text2.innerHTML = text.innerHTML;
+    text2.style.color = 'orange';
+}
+
+const win = ()=>{
+    text.innerHTML = "It's a Win ! ";
+    text.style.color = 'green';
+    text2.innerHTML = text.innerHTML;
+    text2.style.color = 'green';
+}
+
+const lose = ()=>{
+    text.innerHTML = "You Loosed ! ";
+    text.style.color = 'red';
+    text2.innerHTML = text.innerHTML;
+    text2.style.color = 'red';
+}
+
+// Game Functionality.
+const game = () =>{
+    buttons.forEach(btn =>{
+        btn.addEventListener('click',(event)=>{
+        // Random rock paper scissor for the computer and clicked ones for the player
+           let clickedBtn = event.target.className;
+           showIcon.className = clickedBtn;
+           let randomNum = Math.floor(Math.random() * randomClasses.length);
+           computerShowIcon.className = randomClasses[randomNum];
+
+           // If it's a Tie .
+           if(showIcon.className === computerShowIcon.className){
+               pScore.innerHTML = pScore.innerHTML;
+               cScore.innerHTML = cScore.innerHTML;
+               tie();
+           }
+
+           // if it's not a Tie.
+           else if(showIcon.className === rockIcon && computerShowIcon.className === scissorsIcon){
+               pScore.innerHTML = playerScore;
+               playerScore++;
+               win();
+           }else if(showIcon.className === rockIcon && computerShowIcon.className === paperIcon){
+               cScore.innerHTML = computerScore;
+               computerScore++;
+               lose();
+           }else if(showIcon.className === paperIcon && computerShowIcon.className === scissorsIcon){
+               cScore.innerHTML = computerScore;
+               computerScore++;
+               lose();
+           }else if(showIcon.className === paperIcon && computerShowIcon.className === rockIcon){
+               pScore.innerHTML = playerScore;
+               playerScore++;
+               win();
+           }else if(showIcon.className === scissorsIcon && computerShowIcon.className === rockIcon){
+               cScore.innerHTML = computerScore;
+               computerScore++;
+               lose();
+           }else if(showIcon.className === scissorsIcon && computerShowIcon.className === paperIcon){
+               pScore.innerHTML = playerScore;
+               playerScore++;
+               win();
+           }
+        });
+    });
+}
+
+// Run the game.
+game();
+</script>
+
+
+
+
+
+</body>
+</html>

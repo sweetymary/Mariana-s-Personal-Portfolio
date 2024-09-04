@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> MK TIME</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+ <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css">
+ <a href="https://www.flaticon.com/free-icons/favorite"></a>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  </head>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', aclonica;
+	list-style: none;
+  }
+
+ .h1 {
+    color: black;
+    line-height: 1.2;
+    font-weight: 500;
+    center-top: auto;
+  }
+
+  <!--------navigation-------->
+  .navbar {
+    display: flex;
+    top: 0;
+    left: 0;
+	right: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav {
+    flex: 1;
+    justify-content: space-between;
+    text-align: right;
+  }
+
+  nav ul {
+    display: inline-block;
+    list-style-type: none;
+	font-weight: bold;  
+    font-size: 20px;  
+  }
+  
+ nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+ nav ul li a {
+    color: #1d1d24;
+    position: relative;
+    padding: 5px 0;
+}
+ nav ul li a:hover {
+    color: #fd4766;
+}
+
+ nav ul li a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 7px;
+    background: #fd4766;
+    transition: 0.3s;
+    bottom: 0;
+}
+
+  nav ul li a:hover:after {
+    width: 100%;
+} 
+
+  a {
+   text-decoration: none;
+ }
+
+  p {
+    color: #555;
+  }
+
+  .navbar-content {
+    font-family: aclonica;
+    padding: 0, 0, 0, 50px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+  }
+	
+  .container text-center {
+    max-width: 120rem;
+    padding: 0 3rem;
+    margin: auto;
+}
+
+  a .dropbtn {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+  }
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 5px 8px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f3f3f3;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .search {
+    width: 400px;
+    display: flex;
+    float: right;
+  }
+
+  .search-box {
+    width: 60%;
+    height: 30px;
+    padding: 12 22px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #d1d1d1;
+    text-transform: capitalize;
+    background: none;
+    color: #a9a9a9;
+    outline: none;
+  }
+
+  .search-btn {
+    width: 20%;
+    height: 30px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: lightgrey;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .search-box::placeholder {
+    color: #a9a9a9;
+  }
+
+  .card-body {
+    background-color: #f5f5f5;
+    font-family: roboto;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1;
+    padding: 0.3rem;
+    text-rendering: optimize ligibility;
+  }
+
+  .card {
+    display: inline-block;
+    flex-direction: column;
+    grid-template-column: repeat(2, 1fr);
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2);
+    position: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-image-top {
+    background-position: center center;
+    border-top-left-radius: 0.70rem;
+    border-top-right-radius: 0.70rem;
+    content: "";
+    display: block;
+    margin: 0 auto 2rem;
+    width: 100%;
+  }
+
+  .card .container {
+    display: inline-block;
+    flex-direction: column;
+    grid-template-column: repeat(3, 1fr);
+    gap: 10px;
+    background-color: dirty white;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 7px;
+    justify-content: space-around;
+    transition: transform 0.5s;
+  }
+
+
+  .column {
+    flex: 10%;
+    max-width: 30%;
+    padding: 10px;
+  }
+
+  .column img {
+    margin-top: 0 5px;
+    vertical-align: center;
+    max-width: 100%;
+    padding: 50px 0;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+  }
+
+  .btn:hover {
+    background: #563434;
+    color: #fff;
+  }
+
+  #header {
+    background: radial-gradient(#fff, #ffd6d6);
+    margin-bottom: 4rem;
+  }
+
+  #header .row {
+    max-width: 100%;
+    margin-top: 50px;
+  }
+
+  .h4 {
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+    font-size: 1.7rem;
+    height: 5rem;
+    transition: 0.3s;
+  }
+
+  .title::after {
+    content: "";
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .col-3 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+  }
+  
+  .col-3 p {
+   font-size: 12px;
+   margin: 12px 0;
+   color:  #777;
+   }
+
+  .col-3 h2 {
+    font-size: 16px;
+    center-top: auto;
+  }
+
+  .col-3 img {
+    width: 100%;
+  }
+
+  p {
+    line-height: 2rem;
+  }
+
+  span {
+    background-color: lightgrey;
+  }
+
+  .small-container {
+    background: radial-gradient(#fff, #ffd6d6);
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .col-md-6 {
+    display: grid;
+    text-align: center;
+    flex-basis: 17%;
+    padding: 10px;
+    min-width: 200px;
+    gap: 5px;
+	align-items: center;
+    transition: transform 0.5s;
+  }
+
+  .col-md-6 img {
+    width: 100px;
+  }
+
+  .title {
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+  }
+
+  .text {
+    flex: 1 1 auto;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .col-md-6 p {
+    font-size: 17px;
+  }
+
+  img {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+  }
+
+  .rating .fa {
+    color: #ff523b;
+  }
+
+  .col-md-6:hover {
+    transform: translateY(-5px);
+  }
+  
+  .bi-heart {
+   font-size: 20px;
+   }
+  
+ .bi-heart:hover,.bi-heart:focus {
+  color: red;
+  }
+  
+  <!----------offer----------->
+  .col-2 {
+    flex-basis: 30%;
+    min-width: 200px;
+  }
+  .co-2 img {
+    max-width: 100%;
+	padding: 50px 0;
+	}
+
+  .row-2 {
+    justify-content: space-between;
+    margin: 100px auto 50px;
+  }
+
+  #offer {
+    background: radial-gradient(#fff, #ffd5d5);
+    margin-top: 40px;
+    padding: 10px 0;
+  }
+
+  .offer-img {
+    padding: 20px;
+    width: 300px;
+    border-radius: 50%;
+  }
+
+  .col-2 p {
+    font-weight: 600;
+    color: #555;
+    font-size: 12px;
+  }
+  <!----------testimonial--------->
+  .testimonial {
+   paddig-top: 100px;
+   }
+   
+  .testimonial .col-3 {
+   text-align: center;
+   padding: 40px 20px;
+   box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+   cursor: pointer;
+   transition: transform 0.5s;
+   }
+  
+  .testimonial .col-3 img {
+   width: 50px;
+   margin-top: 20px;
+   border-radius: 50%;
+   }
+   
+   .testimonial .col-3:hover {
+    transform: translate(-10px);
+	}
+   
+
+  <!----------footer---------->
+  #footer {
+    color: #8a8a8a;
+	padding-top: 100px;
+    font-size: 14px;
+    padding: 20px 0 10px;
+	}
+	
+	
+  #footer .col-3 {
+    text-align: center;
+	padding: 40px 20px;
+	box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+	cursor: pointer;
+	transition: transform 0.5s;
+  }
+  #footer .col-3:hover {
+    transform: translate(-10px);
+	}
+
+  .menu-icon {
+    width: 20px;
+    margin-left: 20px;
+    display: none;
+  }
+
+  .social-icons {
+    text-decoration: none;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+<!---------products page--------->
+  	
+  .row row-2 {
+    justify-content: space-between;
+    margin: 30px auto 15px;
+  }
+
+  select {
+    border: 1px solid #ff523b;
+    padding: 5px;
+  }
+   select:focus {
+    outline: none;
+}
+
+  .page-btn {
+    margin: 0 auto 80px;
+  }
+
+  .page-btn span {
+    display: inline-block;
+    border: 1px solid #ff523b;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+  }
+
+  .page-btn span:hover {
+    background: #ff523b;
+    color: #fff;
+  }
+    
+
+<!-------cart items-------->
+   #cart-page {
+     margin: 80px auto;
+	 } 
+	
+   table {
+    width: 95%;
+    border-collapse: collapse;
+	margin-left: 30px;
+  }
+
+  .cart-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  th {
+    text-align: left;
+    padding: 7px;
+    color: #fff;
+    background: #ff523b;
+    font-weight: normal;
+  }
+
+  td {
+    padding: 20px 15px;
+  }
+
+  td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  td a {
+    color: #ff523b;
+    font-size: 15px;
+  }
+
+  td img {
+    width: 70%;
+    height: 70%;
+    margin-left: 20px;
+  }
+  
+  .total-price {
+    display: flex;
+	justify-content: flex-end;
+	}
+ 
+  .total-price table {
+    border-top: 3px solid #ff523b;
+	width: 100%;
+	max-width: 300px;
+	}
+	
+  td:last-child {
+    text-align: left;
+	}
+ 
+  th:last-child {
+    text-align: left;
+	}
+	
+
+  <!------------account-page---------->
+  #account {
+    align-items: center;
+    padding: 15px auto;
+    margin-bottom: 30px;
+  }
+
+  .col-2 {
+    flex-basis: 100%;
+    min-width: 400px;
+  }
+
+  .form-container {
+    width: 400px;
+    height: 500px;
+    align-items: center;
+    box-shadow: 8px 8px 20px rgb(128, 128, 128);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn {
+    height: 50px;
+    width: 200px;
+    display: flex;
+    margin: 20px auto;
+    box-shadow: 10px 10px 30px rgb(254, 215, 188);
+    border-radius: 50px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .login,
+  .signup {
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .slider {
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,
+        rgb(255, 195, 110),
+        rgb(255, 146, 91));
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .moveslider {
+    left: 200px;
+  }
+
+  .form-section {
+    height: 300px;
+    width: 800px;
+    padding: 17px 0;
+    display: flex;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    left: 0px;
+  }
+
+  .form-section-move {
+    left: -400px;
+  }
+
+  .login-box,
+  .signup-box {
+    height: 80%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 40px;
+  }
+
+  .login-box {
+    gap: 40px;
+  }
+
+  .signup-box {
+    gap: 20px;
+  }
+
+  .element {
+    height: 50px;
+    width: 250px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgb(240, 240, 240);
+    border-radius: 50px;
+    padding-left: 20px;
+    font-size: 16px;
+  }
+
+  .clkbtn {
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,
+        rgb(255, 195, 110),
+        rgb(255, 146, 91));
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+  }
+   @media only screen and (max-width: 800px) {
+
+    nav ul {
+	  flex-direction: row;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      background-color: #333;
+      width: 100%;
+      overflow: hidden;
+      transition: max-height 0.5s;
+	  z-index: 1;
+    }
+
+    nav ul li {
+      display: block;
+      margin-right: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+
+    .navbar menutoggle {
+      display: flex;
+    }
+								
+    .navbar menutoggle {
+      align-self: flex-end;
+      display: initial;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .navbar #MenuItems {
+      display: none;
+    }
+
+    .navbar #MenuItems--right {
+      margin-left: 0;
+    }
+  }
+    @media only screen and (max-width: 600px) {
+	.container {
+    padding: 0 2rem;
+  }
+    .row  {
+      text-align: center;
+    }
+
+    .col-2,
+    .col-3,
+    .col-md-6 {
+      flex-basis: 100%;
+    }
+	
+	.row row-2 {
+    text-align: center;
+    margin: 7px auto 3px;
+	padding: 0.5rem;
+  }
+
+	select {
+     font-size: 1rem;
+	 float: left;
+	 column-width: auto;
+	  }
+	 
+	option {
+	 font-weight: lighter;
+	 font-size: 7px;
+	 display: block;
+	 min-height: 0.1em;
+	 padding: 0.5px 1px 0.5px;
+	 white-space: wrap;
+	 margin-right: 0.1em;
+	 margin-top: 0.1em;
+	 margin-bottom: 0.1em;
+	 }
+	 
+	h2 {
+	 margin-top: 0;
+	 margin-bottom: 1em;
+	 font-size: 1.5rem;
+	 }
+	  
+    .cart-info p {
+      display: none;
+    }
+
+    .navbar #MenuItems {
+      display: none;
+    }
+
+    .navbar menutoggle {
+      align-self: flex-end;
+      display: initial;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .navbar #MenuItems {
+      margin-left: 0;
+    }
+
+    nav ul {
+      position: absolute;
+      top: 110px;
+      left: 0;
+      right: 0;
+      background: #333;
+      width: 100%;
+      overflow: hidden;
+      transition: max-height 0.5s;
+    }
+
+    nav ul li {
+      display: block;
+      margin-right: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+	.row row-2 {
+      justify-content: space-between;
+      margin: 30px auto 15px;
+  } 
+    .form-container {
+      display: flex;
+      height: 300px;
+      width: 200px;
+    }
+
+    .heading {
+      font-size: 20px;
+    }
+
+    .title {
+      font-size: 10px;
+    }
+
+    .btn {
+      height: 40px;
+      width: 170px;
+      margin: 15px auto;
+    }
+
+    .login,
+    .signup {
+      font-size: 16px;
+    }
+
+    .slider {
+      height: 50px;
+      width: 100px;
+      left: 27px;
+    }
+
+    .moveslider {
+      left: 127px;
+    }
+
+    .form-section {
+      height: 400px;
+      width: 300px;
+    }
+
+    .form-section-move {
+      left: -250px;
+    }
+
+    .login-box,
+    .signup-box {
+      height: 100%;
+      width: 200px;
+    }
+
+    .element {
+      height: 50px;
+      width: 220px;
+      font-size: 15px;
+    }
+
+    .clkbtn {
+      height: 50px;
+      width: 130px;
+      font-size: 19px;
+    }
+
+    .page-btn {
+      margin: 0 auto 40px;
+    }
+
+    .page-btn span {
+      display: inline-block;
+      border: 1px solid #ff523b;
+      margin-left: 5px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 10px;
+      cursor: pointer;
+    }
+
+    .page-btn span:hover {
+      background: #ff523b;
+      color: #fff;
+    }
+
+}
+	
+</style>
+
+<body>
+  <h1 class="title">MK TIME</h1>
+  <div id="header">
+    <div class="container text-center">
+      <div class="navbar">
+        <div class="navbar-content">
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="#" style="font-size: 2rem" "font-weight: 900 bold">MK TIME</a></li>
+              <li class="dropdown">
+                <a href="#javascript:void(0)" type="dropbtn">Products</a>
+                <div class="dropdown-content">
+                  <a class="dropdown-item" href="#small-container Products">Ladies Collection</a>
+                  <a class="dropdown-item" href="#small-container Gents Collection">Gents Collection</a>
+                  <a class="dropdown-item" style="color: red" href="#offer">Offer</a>
+              </li>
+              <li><a href="#small-container Tributes">Our Brand</a></li>
+              <li><a href="#footer">Contact Us</a></li>
+        </div>
+        <div class="search">
+          <input type="text" class="search-box" style="float: right" placeholder="search...">
+          <button class="search-btn">
+            <a href="#"><img src="./Images/icons8-search-24.png"></a>
+          </button>
+        </div>
+        <li><a href="#account"><img src="./Images/icons8-user-icon-24.png" style="width: 20px"></a></li>
+        <li><a href="#cart-page"><img src="./Images/icons8-shopping-cart-24.png" style="width: 20px"></a></li>
+        <li><a href="javascript:void(0);" class="menu-icon" onclick="menutoggle()">
+            <i onclick="myFunction(this)" class='fa fa-bars'>
+            </i>
+          </a>
+        </li>
+        </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">FOR HER</h5>
+            <img src="./Images/pexels-lil-artsy-1374128.jpg" class="card-img-top" style="width: 70%"
+              alt=" ">
+            <h5 class="card-subtitle">DISCOVER</h5>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">FOR HIM</h5>
+            <img src="./Images/pexels-mister-mister-2442893.jpg" class="card-img-top" style="width: 60%"
+              alt=" ">
+            <h5 class="card-subtitle">DISCOVER</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="small-container Tributes">
+      <h4 class="title">TRIBUTES</h4>
+      <div class="row">
+        <div class="col-3">
+          <h5 class="subtitle">AVIATION</h5>
+          <p class="text">In tribute to it's founder's deep passion for aviation,Swiss watchmaker MK TIME is proud
+            to partner with legendary aviation manufacturer Piper Aircraft Inc.</p>
+        </div>
+        <div class="col-3">
+          <h5 class="subtitle">HERITAGE</h5>
+          <p class="text">In tribute to Sandringham Expertise a living heritage that are passionate to cultivate future
+            endeavours,
+            Swiss watchmaker MK TIME is proud to take their ideas and translate them into the future.</p>
+        </div>
+        <div class="col-3">
+          <h5 class="subtitle">NEW ARIVALS</h5>
+          <p class="text">MK TIME newest edition,The Maestro collection,offers sophisticated time pieces,with a powerful
+            look,inspired by the world of ballet.</p>
+        </div>
+      </div>
+    </div>
+    <div id="small-container Products">
+      <div class="row row-2">
+	  <div class="col-2">
+        <h2>Products</h2>
+        <select>
+          <option>Default Sorting</option>
+          <option>Sort by price</option>
+          <option>Sort by popularity</option>
+          <option>Sort by rating</option>
+          <option>Sort by sale</option>
+        </select>
+      </div>
+    </div>
+	</div>
+    <div id="small-container Ladies Collection">
+      <h4 class="title">LADIES COLLECTION</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <picture>
+            <img src="./Images/pexels-sarazh-izmailov-13596383.jpg" style="width: 70%" alt=" ">
+            <p>MIA</p>  
+			<i class="bi-heart"></i>				
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <p>£350.00</p>
+              <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./Images/pexels-esranur-kalay-11596488.jpg" style="width: 70%" alt=" ">
+          <p>ALAIA</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <p>£450.00</p>
+			 <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./Images/pexels-osmany-mederos-15649337.jpg" style="width: 70%" alt=" ">
+          <p>ARIA</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <p>£250.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="./Images/pexels-obi-onyeador-13009437.jpg" style="width: 70%" alt=" ">
+          <p>MIA</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <p>£350.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./Images/pexels-andrea-piacquadio-3774980.jpg" style="width: 70%" alt=" ">
+          <p>ALAIA</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <p>£450.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./Images/pexels-jay-imagery-11655441.jpg" style="width: 70%" alt=" ">
+          <p>ARIA</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <p>£250.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Products">
+      <div id="small-container Gents Collection">
+        <h4 class="title">GENTS COLLECTION</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="./Images/pexels-jnm-thapa-5350693.jpg" style="width: 70%" alt=" ">
+            <p>OCEAN</p>
+			<i class="bi-heart"></i>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <p>£350.00</p>
+              <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="./Images/pexels-ruslan-alekso-2410047.jpg" style="width: 70%" alt=" ">
+            <p>STAR</p>
+			<i class="bi-heart"></i>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <p>£250.00</p>
+              <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="./Images/pexels-javon-swaby-2783873.jpg" style="width: 70%" alt=" ">
+            <p>LYRA</p>
+			<i class="bi-heart"></i>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+              <p>£150.00</p>
+              <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="./Images/pexels-mudassir-ali-2799535.jpg" style="width: 70%" alt=" ">
+          <p>OCEAN</p> 
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <p>£350.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./Images/pexels-bhop-phikanesuan-12437149.jpg" style="width: 70%" alt=" ">
+          <p>STAR</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <p>£250.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./Images/pexels-antony-trivet-9878207.jpg" style="width: 70%" alt=" ">
+          <p>Lyra</p>
+		  <i class="bi-heart"></i>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <p>£150.00</p>
+            <a href="#" style="color: black; background-color: lightgrey">Add to cart</a>
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>&#8594;</span>
+      </div>
+    </div>
+	<div class="small-container">
+    <div id="cart-page">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+        <tr>
+		<td>
+          <div class="cart-info">
+                <img src="./Images/pexels-osmany-mederos-15649337.jpg" style="width: 15%">
+				<div>
+                <p>ARIA</p>
+                <small>Price: £250.00</small>
+                <br>
+                <a href=" ">Remove</a>
+			  </div>
+			  </div>
+            </td>
+            <td><input type="number" value="1"></td>
+            <td>£250.00</td>
+        </tr>
+		 <tr>
+		<td>
+          <div class="cart-info">
+                <img src="./Images/pexels-javon-swaby-2783873.jpg" style="width: 15%">
+				<div>
+                <p>LYRA</p>
+                <small>Price: £150.00</small>
+                <br>
+                <a href=" ">Remove</a>
+              </div>
+			  </div>
+            </td>
+            <td><input type="number" value="1"></td>
+            <td>£150.00</td>
+        </tr>
+    </table>
+	<div class="total-price">
+	<table>
+	<tr>
+	<td>Subtotal</td>
+	<td>£400.00</td>
+	</tr>
+	<tr>
+	<td>Tax</td>
+	<td>£30.00</td>
+	</tr>
+	<tr>
+	<td>Total</td>
+	<td>£430.00</td>
+	</tr>
+	<tr>
+	<td>
+	<a href="" class="btn" style="float: right">Proceed to checkout &#8594;</a>
+	</td>
+	</tr>
+	</table>
+	</div>
+	</div>
+  </div>
+  <div id="offer">
+    <div class="small-container">
+      <div class="row">
+        <div class="col-2">
+          <p>Limited Time Only<br>For Winter!</p>
+          <a href="" class="btn">Explore Now &#8594;</a>
+        </div>
+        <div class="col-2">
+          <img src="./Images/pexels-antony-trivet-9982586.jpg" class="offer-img">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonial">
+  <div class="small-container">
+  <div class="row">
+  <div class="col-3">
+  <i class="fa fa-quote-left"></i>
+  <p>Since receiving my watch, I have been extremely pleased with it's accuracy and appearance! 
+  Thanks for designing a watch that is as pleasing to the eye, as it is to the pocketbook!</p>
+  <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+			  </div>
+		<img src="Images/royal-anwar-gDoNB_BCkdE-unsplash.jpg">
+		<h6>Thomas from London</h6>
+  </div>
+   <div class="col-3">
+  <i class="fa fa-quote-left"></i>
+  <p>I just got my watch and I absolutely love it! 
+  The size is perfect for my wrist, the thickness of the watch and the high quality leather is remarkable. I love the curve crystal. The box and presentation is a nice touch. And the case back engraving is a beautiful.</p>
+  <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+			  </div>
+		<img src="Images/vinicius-wiesehofer-UOavP_Z38lE-unsplash.jpg">
+		<h6>Lily from Edinburgh</h6>
+  </div>
+   <div class="col-3">
+  <i class="fa fa-quote-left"></i>
+  <p>Got my watch in the mail today, it is awesome. The detail throughout the entire piece is amazing. Thanks for doing good work!</p>
+  <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+			  </div>
+		<img src="Images/lau-keith-dcZsxUAAJXs-unsplash.jpg">
+		<h6>Emily from London</h6>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div id="account">
+    <div class="small-container">
+      <div class="row">
+        <div class="col-2">
+          <img src="./Images/product-3.png" style="width: 80%">
+        </div>
+        <div class="col-2">
+          <div class="form-container">
+            <div class="slider"></div>
+            <div class="btn">
+              <button class="login">Login</button>
+              <button class="signup">Signup</button>
+            </div>
+            <div class="form-section">
+              <div class="login-box">
+                <input type="email" class="email element" placeholder="youremail@email.com">
+                <input type="password" class="password element" placeholder="password">
+                <button class="clkbtn">Login</button>
+              </div>
+              <div class="signup-box">
+                <input type="text" class="name element" placeholder="enter your name">
+                <input type="email" class="email element" placeholder="youremail@email.com">
+                <input type="password" class="password element" placeholder="password">
+                <input type="password" class="password element" placeholder="confirm password">
+                <button class="clkbtn">Signup</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>Go to the
+    <a href="#header">top</a>.
+  </p>
+  <div id="footer">
+    <div class="small-container">
+      <h2 class="title">GET IN TOUCH</h2>
+      <p>You want to get in touch? <br>We would love to hear from you.Here's how you can reach us...</p>
+      <div class="row">
+        <div class="col-3">
+          <h5 class="subtitle">TALK TO SALES</h5>
+          <p>Just pick up the phone to chat to our sales team.</p>
+          <p>0131 1234 567</p>
+        </div>
+        <div class="col-3">
+          <h5 class="subtitle">SERVICE & REPAIR TEAM</h5>
+          <p>Sometimes you need a little help from our support reps.Don't worry, we're here for you.</p>
+          <p>0131 2345 678</p>
+        </div>
+        <div class="col-3">
+          <h5 class="subtitle">LET'S CONNECT...</h5><br>
+          <a href="./facebook" title="Facebook">
+            <img src="./Images/facebook.png" style="width: 15%" alt="Facebook icon" />
+          </a><br>
+          <a href="./twitter" title="Twitter">
+            <img src="./Images/twitter.png" style="width: 15%" alt="Twitter icon" />
+          </a> <br>
+          <a href="./linkedin" title="LinkedIn">
+            <img src="./Images/linkedin.png" style="width: 15%" alt="Linkedin icon" />
+          </a><br>
+          <a href="./email adress" title="email adress">
+            <img src="./Images/icons8-envelope-48.png" style="width: 15%" alt=" " />
+          </a> <br>
+          <span>info@mktime.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">
+    MK TIME. All rights reserved. Copyright &copy; 2024.
+  </p>
+  </div>
+  </div>
+  
+ 
+
+<script language="JavaScript">
+    function menutoggle() {
+      let x = document.getElementById('MenuItems');
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    function myFunction(x) {
+      x.classList.toggle("fa-fa-bars");
+    }
+  </script>
+
+  <script language="JavaScript">
+    let signup = document.querySelector(".signup");
+    let login = document.querySelector(".login");
+    let slider = document.querySelector(".slider");
+    let formSection = document.querySelector(".form-section");
+
+    signup.addEventListener("click", () => {
+      slider.classList.add("moveslider");
+      formSection.classList.add("form-section-move");
+    });
+
+    login.addEventListener("click", () => {
+      slider.classList.remove("moveslider");
+      formSection.classList.remove("form-section-move");
+    });
+</script>
+
+<script language="JavaScript">   
+  var e=document.querySelectorAll('option')
+e.forEach(x=>{
+if(x.textContent.length>18)
+x.textContent=x.textContent.substring(0,18)+'...'
+});
+</script>
+
+
+
+
+	  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>	  
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

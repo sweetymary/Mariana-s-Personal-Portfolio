@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8"/>
+	  <meta name="viewport" content="width=700">
+      <meta name="viewport, view-transition" content="width=device-width, initial-scale=1.0, same-origin">
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	   <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+	  
+      <title>Fashion Blog</title>
+  
+<style>
+
+*{
+box-sizing: border-box;
+}
+
+#banner{
+   width: 100%;
+   height: auto;
+   margin-top: 2em;
+   margin-bottom: 2em;
+   orientation: horizontal;
+   box-shadow: 0.4em 0.4em 0.2em #5c5b5b;
+   margin-top: 0.4em !important;
+}
+
+ .container text-center {
+  max-width: 1080px;
+  padding: 0 3rem;
+  margin: auto;
+}
+ 
+  
+.newsletter-box{
+   background-color: lightgrey;
+   margin-top: 0.2em;
+   margin-bottom: 3em;
+}
+
+#newsletter-box{
+   margin-top: 2em;
+   height: 2.5em;
+   padding: 5px;
+   margin-bottom: 3em;
+   background-color: lightgrey;
+   box-shadow: 0.4em 0.4em 0.2em #5c5b5b;
+   margin-right: 0.4em !important;
+}
+
+#mobile-newsletter-box{
+   display: none;
+}
+
+#newsletter-email{
+   width: 12em;
+   transition: width 1s;
+}
+
+#newsletter-email:focus{
+   width: 17em;
+}
+
+ .navbar-brand{
+   font-family: 'Josefin Slab', serif;
+   font-weight: bold;
+   color: #444;
+   font-size: 1.3em;
+   text-decoration: none;
+   float: left;
+   justify-content: space-between;
+}
+
+ul.menu-list{
+   list-style-type: none;
+   margin: 2em 0em;
+   overflow: hidden;
+}
+
+li.menu-item{
+   display: inline;
+   margin: 0em 1.9em;
+}
+
+a.menu-item-link{
+   font-family: Arial,Helvetica,sans-serif;
+   font-size: 1.3em;
+   text-decoration: none;
+   color: black;
+   position: relative;
+}
+
+a.menu-item-link:hover{
+   color: #c31f05;
+}
+a.menu-item-link:active{
+   top: 0.1em;
+   left: 0.1em;
+}
+
+#menu-select {
+   display: none;
+}
+
+ .search-box {
+      width: 30%;
+      height: 30px;
+      padding: 12 22px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border: 1px solid #d1d1d1;
+      text-transform: capitalize;
+      background: none;
+      color: #a9a9a9;
+      outline: none;
+	  margin: 2em 0em;
+    }
+
+    .search-btn {
+      width: 20%;
+      height: 30px;
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: lightgrey;
+      color: #fff;
+      text-transform: capitalize;
+      font-size: 12px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .search-box::placeholder {
+      color: #a9a9a9;
+    }
+  
+body{
+   max-width: 1080px;
+   margin: 0 auto;
+   font-family: Arial,Helvetica,sans-serif;
+   background-color: #e3e3e3;
+   font-size: 1.9em;
+   height: 100%;
+   line-height: 1.9em;
+}
+
+img {
+   border: 2em;
+}
+.h1 {
+    color: black;
+    line-height: 1.2;
+    font-weight: 400;
+    center-top: auto;
+  }
+
+#side {
+  flex: 30%;
+  padding: 20px;
+  float: left;
+  background-color: lightgrey;
+  box-shadow: 0.4em 0.4em 0.2em #5c5b5b;
+  margin-top: 0.4em !important;
+ }
+ 
+ #side h3{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  line-height: 2.5;
+  border-top: 1px solid black;
+  }
+   
+.img {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+ 
+.main {
+  flex: 70%;
+  padding: 20px;
+  float: right;
+  }
+ 
+h2,h3{
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.float-left {
+   float: left;
+}
+
+.float-right {
+   float: right;
+}
+  select {
+    border: 1px solid #ff523b;
+    padding: 5px;
+  }
+   select:focus {
+    outline: none;
+}
+
+p {
+   margin-top: 1.9em;
+   margin-bottom: 0.9em;
+}  
+
+ .testimonial {
+   paddig-top: 100px;
+   }
+   
+  .testimonial .col-3 {
+   text-align: center;
+   padding: 40px 20px;
+   box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+   cursor: pointer;
+   transition: transform 0.5s;
+   }
+  
+  .testimonial .col-3 img {
+   width: 50px;
+   margin-top: 20px;
+   border-radius: 50%;
+   }
+   
+   .testimonial .col-3:hover {
+    transform: translate(-10px);
+	}
+
+#main-footer {
+   background-color: magenta;
+   text-align: center;
+   box-shadow: 0.4em 0.4em 0.2em #5c5b5b;
+   margin-top: 0.4em !important;
+}
+
+.social-bar a {
+   text-decoration: none;
+   margin-right: 3em;
+}
+
+ .row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 7px;
+      justify-content: space-around;
+	  transition: transform 0.5s;
+    }
+
+.column {
+      flex: 20%;
+      max-width: 50%;
+      padding: 20px;
+    }
+ .col-2 {
+      flex-basis: 50%;
+      min-width: 300px;
+    }
+	
+.row-2 {
+   justify-content: space-between;
+   margin: 100px auto 50px;
+   }
+   
+	
+  .col-md-6 {
+      display: grid;
+	  margin-top: 10px;
+      align-items: center;
+      flex-basis: 17%;
+      padding: 5px;
+      min-width: 200px;
+      gap: 5px;
+      transition: transform 0.5s;
+    }
+
+    .col-md-6 img {
+      width: 100px;
+    }
+
+    .title {
+      text-align: center;
+      margin: 0 auto 80px;
+      position: relative;
+      line-height: 60px;
+      color: #555;
+    }
+
+    .title::after {
+      content: "";
+      background: #ff523b;
+      width: 80px;
+      height: 5px;
+      border-radius: 5px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .text {
+      flex: 1 1 auto;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .col-md-6 p {
+      font-size: 17px;
+    }
+
+    img {
+      width: 100%;
+      margin: auto;
+      height: 100%;
+    }
+
+    .rating .fa {
+      color: #ff523b;
+    }
+
+    .col-md-6:hover {
+      transform: translateY(-5px);
+    }
+.page-btn {
+   margin: 0 auto 80px;
+}
+.page-btn span {
+   display: inline-block;
+   border: 1px solid #ff523b;
+   margin-left: 10px;
+   width: 40px;
+   height: 40px;
+   text-align: center;
+   line-height: 40px;
+   cursor: pointer;
+   }
+.page-btn span:hover {
+   background: #ff523b;
+   color: #fff;
+} 
+  .small-container {
+    max-width: 900px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+	background-color: lightgrey;
+	box-shadow: 0.4em 0.4em 0.2em #5c5b5b;
+    margin-top: 0.4em !important;
+  } 
+@media screen and (max-width: 768px) {
+   
+   #banner > img{
+	  max-width: 100%;
+	}
+
+	ul.menu-list{
+      height: auto;
+      text-align: justify;
+   }
+
+   li.menu-item{
+      margin: 0em 0.2em;
+      width: auto;
+      zoom: 1;
+	  margin-bottom: 2px;
+   }
+   
+	h2,h3{
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 1.9;
+}
+	 .row {
+     flex-direction: column;
+	 } 
+	 
+	select {
+	 padding: 0.5px 1px;
+	 float: left;
+	  }
+  
+	 option {
+	 max-width: 16px;
+	 border-bottom: 1px solid #ff523b;
+	 margin-bottom: 3px;
+	 font-weight: normal;
+	 font-size: 0.2em;
+	 display: block;
+	 padding: 0px 1px 0.5px;
+	 white-space: wrap;
+	 line-height: 0.5em;
+	 }
+
+   a.menu-item-link{
+      font-size: 1.1em;
+   }
+    #menu-select{
+      display: block;
+	  margin: 7px auto;
+      width: 70%;
+      font-size: 1.5em;
+	}
+
+   #wrapper{
+      width: inherit;
+   }
+
+   #wrapper{
+      float: none;
+   }
+
+   .social-bar a{
+      margin-right: 0.2em;
+   }
+
+   #newsletter-form{
+      font-size: 1em;
+   }
+
+   input#newsletter-email{
+      width: 10em;
+      transition: none;
+   }
+
+   #social-bar a{
+      text-decoration: none;
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+   }
+   .testimonial .col-3 {
+   text-align: center;
+   padding: 40px 20px;
+   box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+   cursor: pointer;
+   transition: transform 0.5s;
+   width: 50%;
+   }
+}
+
+@media screen and (max-width: 480px){
+   body{
+      font-family: Arial,Helvetica,sans-serif;
+   }
+
+   #banner{
+      background-image: url("./Images/pexels-yaroslav-shuraev-7956675.jpg");
+   }
+    .menu{  
+      display: none;
+   }
+
+   #wrapper{
+      width: inherit;
+   }
+
+   a.menu-item-link{
+      font-family: Arial,Helvetica,sans-serif;
+   }
+
+   #menu-select{
+      display: block;
+      margin: 5px auto;
+      width: 50%;
+      font-size: 1em;
+   }
+
+   #newsletter-box{
+      display: none;
+   }
+
+   #mobile-newsletter-box{
+      display: block;
+   }
+
+   #mobile-newsletter-box *{
+      width: 90%;
+      margin: 0em auto 0.5em auto;
+   }
+
+   #mobile-newsletter-box > form > *{
+      display: block;
+   }
+
+   input#mobile-newsletter-email{
+      font-size: 1em;
+   }
+
+   #mobile-newsletter-box p{
+      padding: 0;
+      text-align: center;
+   }
+
+   #mobile-newsletter-box a{
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #ffffff;
+   }
+
+   #social-bar{
+      text-decoration: none;
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+   }
+ }
+
+</style>
+</head>
+  
+  
+<body>
+<div class="container text-center">
+      <header>
+         <div id="banner" role="banner">
+		 <img src="./Images/pexels-yaroslav-shuraev-7956675.jpg" alt="banner">
+		 </div>
+         <div id="newsletter-box">
+            <form name="newsletter-form" action="#" method="post">
+               <label for="newsletter-email" style="color: black">Newsletter:</label>
+               <input type="email" id="newsletter-email" class="newsletter-email" name="email" required="required" placeholder="Your email" />
+               <input type="submit" name="submit" value="Submit" />
+            </form>
+         </div>
+<nav class="navbar" style="background-color: magenta; box-shadow: 0.4em 0.4em 0.2em #5c5b5b;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+	<img src="./Images/icons8-logo-16.png"  alt="logo icon" style="width: 30%" class="d-inline-block align-text-top">
+	FashionBlog
+	</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0" style="text-align: left">
+			<li class="menu-item">
+               <a class="menu-item-link active" aria-current="page" href="#banner" title="Home">Home</a>
+            </li>
+            <li class="menu-item">
+               <a class="menu-item-link" href="#side" title="About">About</a>
+            </li>
+            <li class="menu-item">
+               <a class="menu-item-link" href="#wrapper" title="Products">Products</a>
+            </li>
+            <li class="menu-item">
+               <a class="menu-item-link" href="#blog" title="Blog">Blog</a>
+            </li>
+            <li class="menu-item">
+               <a class="menu-item-link" href="#newsletter-box" title="Contact">Contact</a>
+			   </li>
+         </ul>
+		  <form class="d-flex" role="search" style="width: fit-content">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+		 </div>
+		 </div>
+      </nav>
+</header>
+<br>
+<br>
+<div class="row">
+<div id="side">
+<h2 class="title">About Us</h2>
+<img src="./Images/pexels-cottonbro-studio-3585034.jpg" style="width: 70%" >
+<p>
+     Fashion Blog is dedicated to help women with a passion for trendy yet confortable fashion, self-development, productivity and to build an online community.
+  The goal of this blog is to help as many women as possible to live their best lives while staying mindful and trendy.</p>
+  <br>
+  <br>
+  <div id="blog">
+  <h2 class="title">A FEW FAVS...</h2>
+  <h3>Can't Live Without</h3>
+  <p style="text-align: center">Coffee in the morning</p>
+  <h3>Guilty Pleasure</h3>
+  <p style="text-align: center">Eating desserts at odd times of the day</p>
+  <h3>Dream Trip</h3>
+  <p style="text-align: center">Japan<p/>
+  <h3>Passionate About</h3>
+  <p style="text-align: center">Fashion, books and interior design</p>
+  <h3>Beach Vs Mountains</h3>
+  <p style="text-align: center">Beach</p>
+  <h3>Can't Live Without</h3>
+  <p style="text-align: center">Physical planner</p>
+  </div>
+  </div>
+  <br>
+<div class="main">  
+         <article id="description-box">
+            <h2 class="title">Fashion</h2>
+            <p style="font-weight: 600">
+               Are you looking for a casual outfit for sunny days or a relaxed garden party? <br>
+			   This clothing brand is one of the most elegant ones out there alongside being one of the most stylish and romantic.
+			    <img src="./Images/icons8-heart-30.png" style="width: 3%" alt=" " />
+            </p>
+         </article>
+		 <div id="wrapper">
+	 <div class="row-2">
+  <h3 class="title">Products</h3>
+   <select>
+     <option>Default Sorting</option>
+	 <option>Sort by price</option>
+	 <option>Sort by popularity</option>
+	 <option>Sort by rating</option>
+	 <option>Sort by sale</option>
+	</select>
+	</div>
+	<br>
+ <div class="row">
+      <div class="col-md-6">
+        <img src="./Images/pexels-andriana-svyryd-3317434.jpg" style="width: 70%" alt=" " class="card-img-top">
+        <p>Bag</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <p>£350.00</p>
+		  <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-athena-2043590.jpg" style="width: 70%" alt=" ">
+        <p>Boots</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <p>£450.00</p>
+		   <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-godisable-jacob-1374910.jpg" style="width: 70%" alt=" ">
+        <p>Bag</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <p>£250.00</p>
+		    <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+	  </div>
+      <div class="row">
+      <div class="col-md-6">
+        <img src="./Images/pexels-alteredsnaps-15761176.jpg" style="width: 70%" alt=" ">
+        <p>Coat</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <p>£350.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-min-an-977380.jpg" style="width: 70%" alt=" ">
+        <p>Boots</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <p>£450.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-olena-goldman-1021693.jpg" style="width: 70%" alt=" ">
+        <p>Blouse</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <p>£250.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="./Images/pexels-athena-2043590.jpg" style="width: 70%" alt=" ">
+        <p>Coat</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <p>£350.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-andriana-svyryd-3317434.jpg" style="width: 70%" alt=" ">
+        <p>Hat</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <p>£100.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-athena-2043590.jpg" style="width: 70%" alt=" ">
+        <p>Dress</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <p>£100.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+    </div>
+   <div class="row">
+      <div class="col-md-6">
+        <img src="./Images/pexels-nicolas-postiglioni-852860.jpg" style="width: 70%" alt=" ">
+        <p>Sunglasses</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <p>£50.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-godisable-jacob-1374910.jpg" style="width: 70%" alt=" ">
+        <p>Sneakers</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <p>£50.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="./Images/pexels-alteredsnaps-15761176.jpg" style="width: 70%" alt=" ">
+        <p>Pants</p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <p>£150.00</p>
+           <a href="#" class="btn btn-secondary">Add to cart</a>
+        </div>
+      </div>
+    </div>
+	<br>
+  <div class="page-btn">
+    <span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>&#8594;</span>
+  </div>	
+	</div>
+	</div>
+	</div>
+<div class="testimonial">
+  <div class="small-container">
+  <div class="row">
+  <div class="col-3">
+  <i class="fa fa-quote-left"></i>
+  <p>I just got my dress and I absolutely love it! 
+  The size is perfect. I love the color as well.</p>
+  <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+			  </div>
+		<img src="Images/allef-vinicius-C_1jjFJioWg-unsplash.jpg">
+		<h6>Claudia from London</h6>
+  </div>
+   <div class="col-3">
+  <i class="fa fa-quote-left"></i>
+  <p>Great blouse.
+  Couldn't be more pleased.</p>
+  <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-half-star"></i>
+			  </div>
+		<img src="Images/vinicius-wiesehofer-UOavP_Z38lE-unsplash.jpg">
+		<h6>Leah from Sidney</h6>
+  </div>
+   <div class="col-3">
+  <i class="fa fa-quote-left"></i>
+  <p>Got my boots today, they are awesome. The details are amazing. Thanks for doing good work!</p>
+  <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+			  </div>
+		<img src="Images/lau-keith-dcZsxUAAJXs-unsplash.jpg">
+		<h6>Emily from NY</h6>
+  </div>
+  </div>
+  </div>
+  </div>
+<footer id="main-footer">
+       <p>
+       Fashion Blog. All rights reserved. Copyright &copy; 2023.
+         </p>
+ <div class="social-bar">
+            <a href="./logo" title="Logo">
+               <img src="./Images/icons8-logo-16.png" style="width: 5%" alt="Logo icon" />
+            </a>
+            <a href="./facebook" title="Facebook">
+               <img src="./Images/facebook.png" style="width: 3%" alt="Facebook icon" />
+            </a>
+            <a href="./twitter" title="Twitter">
+               <img src="./Images/twitter.png" style="width: 3%" alt="Twitter icon" />
+            </a>
+             <a href="./linkedin" title="LinkedIn">
+               <img src="./Images/linkedin.png" style="width: 3%" alt="Linkedin icon" />
+            </a>
+         </div>
+</footer>
+</div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>	  
+   </body>
+</html>
