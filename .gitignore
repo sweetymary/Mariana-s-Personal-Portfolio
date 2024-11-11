@@ -1,0 +1,17 @@
+# Ignore configuration files
+config.php
+
+# Ignore node_modules (if using Node.js)
+node_modules/
+
+# Ignore Composer vendor directory (PHP projects)
+vendor/
+
+# Ignore log files
+*.log
+
+# Ignore IDE-specific files ( for Visual Studio Code )
+.vscode/
+
+# Ignore OS-specific files
+Thumbs.db  # Windows
